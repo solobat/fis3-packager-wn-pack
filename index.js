@@ -39,8 +39,14 @@ function initPackInfo(context, parseOpts, settings) {
  */
 module.exports = function(ret, pack, settings, opt) {
     //判断packAsync开关
-    var packAsync = fis.media().get('release.packAsync') || false;
-    settings && settings.page && (settings.page.packAsync = packAsync);
+    var packAsync = fis.media().get('release.packAsync');
+
+    typeof packAsync !== 'undefined' && settings && settings.page && (settings.page.packAsync = packAsync);
+
+    //获取outputNotPackPathMap
+    var outputNotPackPathMap = fis.media().get('release.outputNotPackPathMap');
+    typeof outputNotPackPathMap !== 'undefined' && settings &&(settings.outputNotPackPathMap = outputNotPackPathMap);
+
     try {
         var context = new Context(ret);
         var parseOpts = _.assign({}, htmlParser.getDefaultOption(), settings.page);
