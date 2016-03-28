@@ -38,6 +38,9 @@ function initPackInfo(context, parseOpts, settings) {
  * opt 命令行参数
  */
 module.exports = function(ret, pack, settings, opt) {
+    //判断packAsync开关
+    var packAsync = fis.media().get('release.packAsync') || false;
+    settings && settings.page && (settings.page.packAsync = packAsync);
     try {
         var context = new Context(ret);
         var parseOpts = _.assign({}, htmlParser.getDefaultOption(), settings.page);
