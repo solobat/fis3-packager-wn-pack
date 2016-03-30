@@ -16,6 +16,7 @@
     "plugin"
   ],
   "dependencies": {
+    "fisx-helper":"0.1.0",
     "fisx-amd": "^0.1.0"
   },
   "author": "fengyang321@gmail.com",

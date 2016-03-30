@@ -1,9 +1,11 @@
 var _ = fis.util;
+ _.assign(_, require('fisx-helper'));
 var htmlParser = require('./lib/html');
 var Context = require('./lib/context');
 var packUtil = require('./lib/pack');
-var extension = require('./lib/extension');
-extension.init(fis);
+
+
+
 
 /**
  * 初始化 页面打包信息
