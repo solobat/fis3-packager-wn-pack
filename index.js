@@ -16,9 +16,6 @@ var packUtil = require('./lib/pack');
  * @param {Object} settings 打包设置选项
  */
 function initPackInfo(context, parseOpts, settings) {
-    // 初始化页面打包信息
-    packUtil.packPage(context, parseOpts);
-
     // 初始化指定的文件打包信息
     var bundles = settings.bundles || [];
     bundles.forEach(function(packItem) {
@@ -30,8 +27,12 @@ function initPackInfo(context, parseOpts, settings) {
 
         options.host = null;
         options.rawCombines = null;
+        options.isPackBundles = true;
         context.addToPackItem(packUtil.createPackItem(options, context));
     });
+
+    // 初始化页面打包信息
+    packUtil.packPage(context, parseOpts);
 }
 
 /*
@@ -64,7 +65,5 @@ module.exports = function(ret, pack, settings, opt) {
     } catch (ex) {
         fis.log.error(ex.stack);
     }
-    debugger;
-
-
+    
 };
