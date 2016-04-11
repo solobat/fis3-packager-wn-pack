@@ -1,6 +1,6 @@
 {
   "name": "fis3-packager-wn-pack",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "fis3 packager plugin, modified version based on fisx-packager-static",
   "main": "index.js",
   "scripts": {
